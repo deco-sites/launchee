@@ -13,22 +13,12 @@
     {
       "__resolveType": "site/sections/Pricing.tsx",
       "plans": [
-        {
-          "benefits": [
-            {
-              "description": "asdasd",
-              "tag": "asdsad"
-            },
-            {
-              "description": "other bebnefit",
-              "tag": "limited"
-            }
-          ],
-          "planType": "Standard",
-          "price": 200
-        }
+        {}
       ],
-      "subcriptionType": "Monthly"
+      "subcriptionType": "Monthly",
+      "benefits": [
+        {}
+      ]
     }
   ],
   "__resolveType": "website/pages/Page.tsx"

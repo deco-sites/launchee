@@ -9,6 +9,25 @@
     },
     {
       "__resolveType": "Footer"
+    },
+    {
+      "__resolveType": "site/sections/Pricing.tsx",
+      "plans": [
+        {
+          "benefits": [
+            {
+              "description": "asdasd",
+              "tag": "asdsad"
+            },
+            {
+              "description": "other bebnefit",
+              "tag": "limited"
+            }
+          ],
+          "planType": "asd",
+          "price": 200
+        }
+      ]
     }
   ],
   "__resolveType": "website/pages/Page.tsx"

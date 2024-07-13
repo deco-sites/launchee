@@ -1,9 +1,6 @@
 
 export interface PlanBenefit {
-    /**
-    * @description The description of the benefit.
-    */
-    description?: string;
+    description: string;
     /**
     * @description An optional tag for the benefit.
     */
@@ -11,14 +8,8 @@ export interface PlanBenefit {
 }
 
 export interface Plan {
-    /**
-    * @description Plan type.
-    */
-    planType?: string;
-    /**
-    * @description Plan price.
-    */
-    price?: number;
+    planType: string;
+    price: number;
     /**
     * @description Benefits of the plan.
     */
@@ -26,10 +17,8 @@ export interface Plan {
 }
 
 export interface Pricing { 
-    /**
-    * @description Pricing plans.
-    */
-    plans?: Plan[];
+    subcriptionType: "Monthly" | "Yearly";
+    plans: Plan[];
 }
 
 function createDefaultPlans(plans?: Plan[]): Plan[] {

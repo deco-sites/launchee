@@ -1,16 +1,34 @@
 
-export interface PlanBenefit { 
+export interface PlanBenefit {
+    /**
+    * @description The description of the benefit.
+    */
     description?: string;
+    /**
+    * @description An optional tag for the benefit.
+    */
     tag?: string;
 }
 
 export interface Plan {
+    /**
+    * @description Plan type.
+    */
     planType?: string;
+    /**
+    * @description Plan price.
+    */
     price?: number;
+    /**
+    * @description Benefits of the plan.
+    */
     benefits?: PlanBenefit[];
 }
 
 export interface Pricing { 
+    /**
+    * @description Pricing plans.
+    */
     plans?: Plan[];
 }
 
@@ -35,17 +53,20 @@ function createDefaultPlans(plans?: Plan[]): Plan[] {
     return plans ? plans : [defaultPlan, basicPlan];
 }
 
-export default function Plans({ plans = createDefaultPlans()}: Pricing) {
+export default function Plans({ plans = [] }: Pricing) {
+    
+    const allplans = createDefaultPlans(plans); 
+
     return (
         <div class="bg-gray-100 min-h-screen flex items-center justify-center">
 
             <div class="max-w-screen-lg w-full p-4 bg-white rounded-lg shadow-lg flex flex-col md:flex-row md:space-x-4">
 
-                {plans?.map((plan, _) => { 
-                    <div class="flex-1 bg-gray-200 rounded-lg p-6 text-center">
+                {allplans.map(plan => { 
+                    return <div class="flex-1 bg-gray-200 rounded-lg p-6 text-center">
                         <h2 class="text-2xl font-semibold mb-4">{ plan.planType }</h2>
                         <p class="text-3xl font-bold mb-4">{plan.price}</p>
-                        {plan.benefits?.map((benefit, _) => {
+                        {plan.benefits?.map(benefit => {
                             <p class="text-gray-600 mb-4">{benefit.description}
                                 <span class="badge badge-accent">{benefit?.tag}</span></p>
                         })}

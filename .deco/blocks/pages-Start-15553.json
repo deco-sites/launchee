@@ -24,10 +24,11 @@
               "tag": "limited"
             }
           ],
-          "planType": "asd",
+          "planType": "Standard",
           "price": 200
         }
-      ]
+      ],
+      "subcriptionType": "Monthly"
     }
   ],
   "__resolveType": "website/pages/Page.tsx"

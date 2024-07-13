@@ -11,14 +11,7 @@
       "__resolveType": "Footer"
     },
     {
-      "__resolveType": "site/sections/Pricing.tsx",
-      "plans": [
-        {}
-      ],
-      "subcriptionType": "Monthly",
-      "benefits": [
-        {}
-      ]
+      "__resolveType": "site/sections/Pricing.tsx"
     }
   ],
   "__resolveType": "website/pages/Page.tsx"

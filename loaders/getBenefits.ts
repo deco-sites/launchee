@@ -1,4 +1,4 @@
-export type Benefit = {
+type Benefit = {
     description: string;
     /**
     * @description An optional tag for the benefit.
@@ -6,7 +6,9 @@ export type Benefit = {
     tag?: string;
 }
 
-export default async function getBenefits(): Promise<Benefit[]> {
+export type BenefitList = Benefit[] | undefined;
+
+export default async function getBenefits(): Promise<BenefitList> {
     return [
         {
             description: 'benefit 1'

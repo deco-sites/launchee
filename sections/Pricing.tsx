@@ -42,6 +42,28 @@ function createDefaultPlans(plans?: Plan[]): Plan[] {
     return plans ? plans : [defaultPlan, basicPlan];
 }
 
+function listPlanBenefits(benefits: PlanBenefit[] | undefined) { 
+    return (
+        <ul class="text-left">
+            {benefits?.map(benefit => {
+                return <p class="text-gray-600 mb-4">{benefit.description}
+                    <span class="badge badge-accent mx-2">{benefit?.tag}</span></p>
+            })}
+        </ul>
+    );
+}
+
+function getCardFor(plan: Plan) { 
+    return (
+        <div class="flex-1 bg-gray-200 rounded-lg p-6 text-center">
+            <h2 class="text-2xl font-semibold mb-4">{plan.planType}</h2>
+            <p class="text-3xl font-bold mb-4">{plan.price}</p>
+            { listPlanBenefits(plan.benefits) }
+            <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">Choose Plan</button>
+        </div>
+    );
+}
+
 export default function Plans({ plans = [] }: Pricing) {
     
     const allplans = createDefaultPlans(plans); 
@@ -51,18 +73,8 @@ export default function Plans({ plans = [] }: Pricing) {
 
             <div class="max-w-screen-lg w-full p-4 bg-white rounded-lg shadow-lg flex flex-col md:flex-row md:space-x-4">
 
-                {allplans.map(plan => { 
-                    return <div class="flex-1 bg-gray-200 rounded-lg p-6 text-center">
-                        <h2 class="text-2xl font-semibold mb-4">{ plan.planType }</h2>
-                        <p class="text-3xl font-bold mb-4">{plan.price}</p>
-                        {plan.benefits?.map(benefit => {
-                            return <p class="text-gray-600 mb-4">{benefit.description}
-                                <span class="badge badge-accent">{benefit?.tag}</span></p>
-                        })}
-                        <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">Choose Plan</button>
-                    </div>
-                })}
-                    
+                {allplans.map(plan => getCardFor(plan))}
+    
             </div>
         </div>
     );

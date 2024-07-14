@@ -1,4 +1,4 @@
-import { type BenefitList } from "site/loaders/getBenefits.ts";
+import { type Benefit } from "../loaders/ServiceBenefitList.ts";
 
 export interface Plan {
     planType: string;
@@ -12,7 +12,7 @@ export interface Plan {
 export interface Pricing { 
     subcriptionType: "Monthly" | "Yearly";
     plans: Plan[];
-    benefits: BenefitList;
+    benefits: Benefit[];
 }
 
 function createDefaultPricing(plans?: Plan[]): Plan[] {
@@ -27,7 +27,7 @@ function createDefaultPricing(plans?: Plan[]): Plan[] {
     return plans ? plans : [defaultPlan, basicPlan];
 }
 
-function listPlanBenefits(benefits: BenefitList | undefined) { 
+function listPlanBenefits(benefits: Benefit[] | null) { 
     return (
         <div class="flex justify-center">
             <ul class="text-left">
@@ -40,7 +40,7 @@ function listPlanBenefits(benefits: BenefitList | undefined) {
     );
 }
 
-function getCardFor(plan: Plan, benefits: BenefitList) { 
+function getCardFor(plan: Plan, benefits: Benefit[]) { 
     return (
         <div class="flex-1 bg-gray-200 rounded-lg p-6 text-center">
             <h2 class="text-2xl font-semibold mb-4">{plan.planType}</h2>
@@ -51,7 +51,7 @@ function getCardFor(plan: Plan, benefits: BenefitList) {
     );
 }
 
-export default function Plans({ subcriptionType = 'Monthly', plans = [], benefits}: Pricing) {
+export default function Pricing({ subcriptionType = 'Monthly', plans = [], benefits}: Pricing) {
     
     const pricing = createDefaultPricing(plans); 
 

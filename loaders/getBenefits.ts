@@ -6,7 +6,7 @@ type Benefit = {
     tag?: string;
 }
 
-export type BenefitList = Benefit[] | undefined;
+export type BenefitList = Benefit[] | null;
 
 export default async function getBenefits(): Promise<BenefitList> {
     return [

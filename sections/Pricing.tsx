@@ -58,7 +58,9 @@ export default function Plans({ subcriptionType = 'Monthly', plans = [], benefit
     return (
         <div class="bg-gray-100 min-h-screen flex items-center justify-center">
 
-            <p>{subcriptionType}</p>
+            <div class="text-center">
+                <p>{subcriptionType}</p>
+            </div>
 
             <div class="max-w-screen-lg w-full p-4 bg-white rounded-lg shadow-lg flex flex-col md:flex-row md:space-x-4">
 

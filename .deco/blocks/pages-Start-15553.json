@@ -11,7 +11,15 @@
       "__resolveType": "Footer"
     },
     {
-      "__resolveType": "site/sections/Pricing.tsx"
+      "__resolveType": "site/sections/Pricing.tsx",
+      "subcriptionType": "Monthly",
+      "plans": [
+        {
+          "planType": "Standard",
+          "price": 200
+        }
+      ],
+      "benefits": null
     }
   ],
   "__resolveType": "website/pages/Page.tsx"
